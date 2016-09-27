@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self exchangeMethodTest];
+    [self pricediscountLabel];
     
 }
 -(void)exchangeMethodTest{
@@ -27,6 +28,22 @@
     NSLog(@"数组越界测试%@",str);
     NSLog(@"数组非越界测试%@",[arr objectAtIndex:3]);
     NSLog(@"数组越界再次测试%@",[arr objectAtIndex:66]);
+}
+
+-(void)pricediscountLabel{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 200, 30)];
+    [self.view addSubview:label];
+    label.text = @"12.89";
+    label.textAlignment = 1;
+    label.textColor = [UIColor grayColor];
+    NSMutableAttributedString *newPrice = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"￥%@",label.text]];
+    [newPrice addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, newPrice.length)];
+    label.attributedText = newPrice;
+    /*
+     - (void)addAttribute:(NSString *)name value:(id)value range:(NSRange)range;
+     使用该属性添加横线
+     
+     */
 }
 
 - (void)didReceiveMemoryWarning {
