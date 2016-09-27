@@ -15,6 +15,7 @@
 		B6FF8AC31D9A49940059DD1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FF8AC11D9A49940059DD1E /* LaunchScreen.storyboard */; };
 		B6FF8ACE1D9A49940059DD1E /* runtimetestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8ACD1D9A49940059DD1E /* runtimetestTests.m */; };
 		B6FF8AD91D9A49940059DD1E /* runtimetestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8AD81D9A49940059DD1E /* runtimetestUITests.m */; };
+		B6FF8AE81D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8AE71D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		B6FF8AD41D9A49940059DD1E /* runtimetestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = runtimetestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FF8AD81D9A49940059DD1E /* runtimetestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = runtimetestUITests.m; sourceTree = "<group>"; };
 		B6FF8ADA1D9A49940059DD1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6FF8AE61D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+safeObjectAtIndex.h"; sourceTree = "<group>"; };
+		B6FF8AE71D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+safeObjectAtIndex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				B6FF8AB71D9A49940059DD1E /* AppDelegate.m */,
 				B6FF8AB91D9A49940059DD1E /* ViewController.h */,
 				B6FF8ABA1D9A49940059DD1E /* ViewController.m */,
+				B6FF8AE61D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.h */,
+				B6FF8AE71D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m */,
 				B6FF8ABC1D9A49940059DD1E /* Main.storyboard */,
 				B6FF8ABF1D9A49940059DD1E /* Assets.xcassets */,
 				B6FF8AC11D9A49940059DD1E /* LaunchScreen.storyboard */,
@@ -276,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6FF8AE81D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m in Sources */,
 				B6FF8ABB1D9A49940059DD1E /* ViewController.m in Sources */,
 				B6FF8AB81D9A49940059DD1E /* AppDelegate.m in Sources */,
 				B6FF8AB51D9A49940059DD1E /* main.m in Sources */,
