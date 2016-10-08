@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61854501DA8ECC000C78789 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B618544F1DA8ECC000C78789 /* Student.m */; };
+		B61854531DA8EE4F00C78789 /* AspectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B61854521DA8EE4F00C78789 /* AspectProxy.m */; };
+		B61854571DA8F4B300C78789 /* AuditingInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = B61854561DA8F4B300C78789 /* AuditingInvoker.m */; };
 		B6FF8AB51D9A49940059DD1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8AB41D9A49940059DD1E /* main.m */; };
 		B6FF8AB81D9A49940059DD1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8AB71D9A49940059DD1E /* AppDelegate.m */; };
 		B6FF8ABB1D9A49940059DD1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FF8ABA1D9A49940059DD1E /* ViewController.m */; };
@@ -36,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B618544E1DA8ECC000C78789 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		B618544F1DA8ECC000C78789 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		B61854511DA8EE4F00C78789 /* AspectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AspectProxy.h; sourceTree = "<group>"; };
+		B61854521DA8EE4F00C78789 /* AspectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AspectProxy.m; sourceTree = "<group>"; };
+		B61854541DA8EF5100C78789 /* Invoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoker.h; sourceTree = "<group>"; };
+		B61854551DA8F4B300C78789 /* AuditingInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditingInvoker.h; sourceTree = "<group>"; };
+		B61854561DA8F4B300C78789 /* AuditingInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditingInvoker.m; sourceTree = "<group>"; };
 		B6FF8AB01D9A49940059DD1E /* runtimetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = runtimetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FF8AB41D9A49940059DD1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6FF8AB61D9A49940059DD1E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +118,13 @@
 				B6FF8AB71D9A49940059DD1E /* AppDelegate.m */,
 				B6FF8AB91D9A49940059DD1E /* ViewController.h */,
 				B6FF8ABA1D9A49940059DD1E /* ViewController.m */,
+				B618544E1DA8ECC000C78789 /* Student.h */,
+				B618544F1DA8ECC000C78789 /* Student.m */,
+				B61854511DA8EE4F00C78789 /* AspectProxy.h */,
+				B61854521DA8EE4F00C78789 /* AspectProxy.m */,
+				B61854541DA8EF5100C78789 /* Invoker.h */,
+				B61854551DA8F4B300C78789 /* AuditingInvoker.h */,
+				B61854561DA8F4B300C78789 /* AuditingInvoker.m */,
 				B6FF8AE61D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.h */,
 				B6FF8AE71D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m */,
 				B6FF8ABC1D9A49940059DD1E /* Main.storyboard */,
@@ -283,7 +300,10 @@
 			files = (
 				B6FF8AE81D9A49AD0059DD1E /* NSArray+safeObjectAtIndex.m in Sources */,
 				B6FF8ABB1D9A49940059DD1E /* ViewController.m in Sources */,
+				B61854531DA8EE4F00C78789 /* AspectProxy.m in Sources */,
+				B61854501DA8ECC000C78789 /* Student.m in Sources */,
 				B6FF8AB81D9A49940059DD1E /* AppDelegate.m in Sources */,
+				B61854571DA8F4B300C78789 /* AuditingInvoker.m in Sources */,
 				B6FF8AB51D9A49940059DD1E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +542,7 @@
 				B6FF8ADF1D9A49940059DD1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6FF8AE01D9A49940059DD1E /* Build configuration list for PBXNativeTarget "runtimetestTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +551,7 @@
 				B6FF8AE21D9A49940059DD1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6FF8AE31D9A49940059DD1E /* Build configuration list for PBXNativeTarget "runtimetestUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +560,7 @@
 				B6FF8AE51D9A49940059DD1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

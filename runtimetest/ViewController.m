@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "NSArray+safeObjectAtIndex.h"
-
+#import "Student.h"
+#import "AuditingInvoker.h"
+#import "AspectProxy.h"
 @interface ViewController ()
 
 @end
@@ -28,6 +30,27 @@
     NSLog(@"数组越界测试%@",str);
     NSLog(@"数组非越界测试%@",[arr objectAtIndex:3]);
     NSLog(@"数组越界再次测试%@",[arr objectAtIndex:66]);
+    
+    id student = [[Student alloc] init];
+    
+    // 设置代理中注册的选择器数组
+    NSValue *selValue1 = [NSValue valueWithPointer:@selector(study:andRead:)];
+    NSArray *selValues = @[selValue1];
+    // 创建AuditingInvoker
+    AuditingInvoker *invoker = [[AuditingInvoker alloc] init];
+    // 创建Student对象的代理studentProxy
+    id studentProxy = [[AspectProxy alloc] initWithObject:student selectors:selValues andInvoker:invoker];
+    
+    // 使用指定的选择器向该代理发送消息---例子1
+    [studentProxy study:@"Computer" andRead:@"Algorithm"];
+    
+    // 使用还未注册到代理中的其他选择器，向这个代理发送消息！---例子2
+    [studentProxy study:@"mathematics" :@"higher mathematics"];
+    
+    // 为这个代理注册一个选择器并再次向其发送消息---例子3
+    [studentProxy registerSelector:@selector(study::)];
+    [studentProxy study:@"mathematics" :@"higher mathematics"];
+
 }
 
 -(void)pricediscountLabel{
