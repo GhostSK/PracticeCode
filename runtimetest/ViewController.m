@@ -40,13 +40,13 @@
     AuditingInvoker *invoker = [[AuditingInvoker alloc] init];
     // 创建Student对象的代理studentProxy
     id studentProxy = [[AspectProxy alloc] initWithObject:student selectors:selValues andInvoker:invoker];
-    
+    NSLog(@"以下为第一条信息的输出");
     // 使用指定的选择器向该代理发送消息---例子1
     [studentProxy study:@"Computer" andRead:@"Algorithm"];
-    
+        NSLog(@"以下为第二条信息的输出");
     // 使用还未注册到代理中的其他选择器，向这个代理发送消息！---例子2
     [studentProxy study:@"mathematics" :@"higher mathematics"];
-    
+        NSLog(@"以下为第三条信息的输出");
     // 为这个代理注册一个选择器并再次向其发送消息---例子3
     [studentProxy registerSelector:@selector(study::)];
     [studentProxy study:@"mathematics" :@"higher mathematics"];
