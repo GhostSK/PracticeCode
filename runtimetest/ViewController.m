@@ -50,7 +50,15 @@
     // 为这个代理注册一个选择器并再次向其发送消息---例子3
     [studentProxy registerSelector:@selector(study::)];
     [studentProxy study:@"mathematics" :@"higher mathematics"];
+    UIButton *btn = [[UIButton alloc]init];
+    btn.frame = CGRectMake(100, 350, 80, 30);
+    [btn setTitle:@"AAAA" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(testActionWithFirstParams:SecondParams:) forControlEvents:UIControlEventTouchUpInside];
 
+}
+-(void)testActionWithFirstParams:(NSString *)P1
+                    SecondParams:(NSInteger)P2{
+    NSLog(@"%@%ld",P1,(long)P2);
 }
 
 -(void)pricediscountLabel{
