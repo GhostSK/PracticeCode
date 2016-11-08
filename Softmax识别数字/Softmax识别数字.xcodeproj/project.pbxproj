@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6391B8E1DC1FA050009D704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391B8D1DC1FA050009D704 /* main.m */; };
+		B6391B911DC1FA050009D704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391B901DC1FA050009D704 /* AppDelegate.m */; };
+		B6391B941DC1FA050009D704 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391B931DC1FA050009D704 /* ViewController.m */; };
+		B6391B971DC1FA050009D704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6391B951DC1FA050009D704 /* Main.storyboard */; };
+		B6391B991DC1FA050009D704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6391B981DC1FA050009D704 /* Assets.xcassets */; };
+		B6391B9C1DC1FA050009D704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6391B9A1DC1FA050009D704 /* LaunchScreen.storyboard */; };
+		B6391BA71DC1FA050009D704 /* Softmax____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391BA61DC1FA050009D704 /* Softmax____Tests.m */; };
+		B6391BB21DC1FA050009D704 /* Softmax____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391BB11DC1FA050009D704 /* Softmax____UITests.m */; };
+		B6391BC11DC1FBB50009D704 /* MLLoadMNIST.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391BC01DC1FBB50009D704 /* MLLoadMNIST.m */; };
+		B6391BC41DC201D00009D704 /* MLSoftMax.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391BC31DC201D00009D704 /* MLSoftMax.m */; };
+		B6391BC71DC20B1C0009D704 /* MLCnn.m in Sources */ = {isa = PBXBuildFile; fileRef = B6391BC61DC20B1C0009D704 /* MLCnn.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6391BA31DC1FA050009D704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6391B811DC1FA050009D704 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6391B881DC1FA050009D704;
+			remoteInfo = "Softmax识别数字";
+		};
+		B6391BAE1DC1FA050009D704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6391B811DC1FA050009D704 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6391B881DC1FA050009D704;
+			remoteInfo = "Softmax识别数字";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B6391B891DC1FA050009D704 /* Softmax识别数字.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Softmax识别数字.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6391B8D1DC1FA050009D704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B6391B8F1DC1FA050009D704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B6391B901DC1FA050009D704 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B6391B921DC1FA050009D704 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B6391B931DC1FA050009D704 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B6391B961DC1FA050009D704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6391B981DC1FA050009D704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6391B9B1DC1FA050009D704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6391B9D1DC1FA050009D704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6391BA21DC1FA050009D704 /* Softmax识别数字Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Softmax识别数字Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6391BA61DC1FA050009D704 /* Softmax____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Softmax____Tests.m"; sourceTree = "<group>"; };
+		B6391BA81DC1FA050009D704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6391BAD1DC1FA050009D704 /* Softmax识别数字UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Softmax识别数字UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6391BB11DC1FA050009D704 /* Softmax____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Softmax____UITests.m"; sourceTree = "<group>"; };
+		B6391BB31DC1FA050009D704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6391BBF1DC1FBB50009D704 /* MLLoadMNIST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoadMNIST.h; sourceTree = "<group>"; };
+		B6391BC01DC1FBB50009D704 /* MLLoadMNIST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoadMNIST.m; sourceTree = "<group>"; };
+		B6391BC21DC201D00009D704 /* MLSoftMax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLSoftMax.h; sourceTree = "<group>"; };
+		B6391BC31DC201D00009D704 /* MLSoftMax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLSoftMax.m; sourceTree = "<group>"; };
+		B6391BC51DC20B1C0009D704 /* MLCnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCnn.h; sourceTree = "<group>"; };
+		B6391BC61DC20B1C0009D704 /* MLCnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCnn.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B6391B861DC1FA050009D704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391B9F1DC1FA050009D704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391BAA1DC1FA050009D704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B6391B801DC1FA050009D704 = {
+			isa = PBXGroup;
+			children = (
+				B6391B8B1DC1FA050009D704 /* Softmax识别数字 */,
+				B6391BA51DC1FA050009D704 /* Softmax识别数字Tests */,
+				B6391BB01DC1FA050009D704 /* Softmax识别数字UITests */,
+				B6391B8A1DC1FA050009D704 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B6391B8A1DC1FA050009D704 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B6391B891DC1FA050009D704 /* Softmax识别数字.app */,
+				B6391BA21DC1FA050009D704 /* Softmax识别数字Tests.xctest */,
+				B6391BAD1DC1FA050009D704 /* Softmax识别数字UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B6391B8B1DC1FA050009D704 /* Softmax识别数字 */ = {
+			isa = PBXGroup;
+			children = (
+				B6391B8F1DC1FA050009D704 /* AppDelegate.h */,
+				B6391B901DC1FA050009D704 /* AppDelegate.m */,
+				B6391B921DC1FA050009D704 /* ViewController.h */,
+				B6391B931DC1FA050009D704 /* ViewController.m */,
+				B6391BBF1DC1FBB50009D704 /* MLLoadMNIST.h */,
+				B6391BC01DC1FBB50009D704 /* MLLoadMNIST.m */,
+				B6391BC21DC201D00009D704 /* MLSoftMax.h */,
+				B6391BC31DC201D00009D704 /* MLSoftMax.m */,
+				B6391BC51DC20B1C0009D704 /* MLCnn.h */,
+				B6391BC61DC20B1C0009D704 /* MLCnn.m */,
+				B6391B951DC1FA050009D704 /* Main.storyboard */,
+				B6391B981DC1FA050009D704 /* Assets.xcassets */,
+				B6391B9A1DC1FA050009D704 /* LaunchScreen.storyboard */,
+				B6391B9D1DC1FA050009D704 /* Info.plist */,
+				B6391B8C1DC1FA050009D704 /* Supporting Files */,
+			);
+			path = "Softmax识别数字";
+			sourceTree = "<group>";
+		};
+		B6391B8C1DC1FA050009D704 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6391B8D1DC1FA050009D704 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6391BA51DC1FA050009D704 /* Softmax识别数字Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B6391BA61DC1FA050009D704 /* Softmax____Tests.m */,
+				B6391BA81DC1FA050009D704 /* Info.plist */,
+			);
+			path = "Softmax识别数字Tests";
+			sourceTree = "<group>";
+		};
+		B6391BB01DC1FA050009D704 /* Softmax识别数字UITests */ = {
+			isa = PBXGroup;
+			children = (
+				B6391BB11DC1FA050009D704 /* Softmax____UITests.m */,
+				B6391BB31DC1FA050009D704 /* Info.plist */,
+			);
+			path = "Softmax识别数字UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B6391B881DC1FA050009D704 /* Softmax识别数字 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6391BB61DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字" */;
+			buildPhases = (
+				B6391B851DC1FA050009D704 /* Sources */,
+				B6391B861DC1FA050009D704 /* Frameworks */,
+				B6391B871DC1FA050009D704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Softmax识别数字";
+			productName = "Softmax识别数字";
+			productReference = B6391B891DC1FA050009D704 /* Softmax识别数字.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B6391BA11DC1FA050009D704 /* Softmax识别数字Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6391BB91DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字Tests" */;
+			buildPhases = (
+				B6391B9E1DC1FA050009D704 /* Sources */,
+				B6391B9F1DC1FA050009D704 /* Frameworks */,
+				B6391BA01DC1FA050009D704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6391BA41DC1FA050009D704 /* PBXTargetDependency */,
+			);
+			name = "Softmax识别数字Tests";
+			productName = "Softmax识别数字Tests";
+			productReference = B6391BA21DC1FA050009D704 /* Softmax识别数字Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B6391BAC1DC1FA050009D704 /* Softmax识别数字UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6391BBC1DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字UITests" */;
+			buildPhases = (
+				B6391BA91DC1FA050009D704 /* Sources */,
+				B6391BAA1DC1FA050009D704 /* Frameworks */,
+				B6391BAB1DC1FA050009D704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6391BAF1DC1FA050009D704 /* PBXTargetDependency */,
+			);
+			name = "Softmax识别数字UITests";
+			productName = "Softmax识别数字UITests";
+			productReference = B6391BAD1DC1FA050009D704 /* Softmax识别数字UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B6391B811DC1FA050009D704 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "胡杨林";
+				TargetAttributes = {
+					B6391B881DC1FA050009D704 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9GL7T79KV7;
+						ProvisioningStyle = Automatic;
+					};
+					B6391BA11DC1FA050009D704 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9GL7T79KV7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B6391B881DC1FA050009D704;
+					};
+					B6391BAC1DC1FA050009D704 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9GL7T79KV7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B6391B881DC1FA050009D704;
+					};
+				};
+			};
+			buildConfigurationList = B6391B841DC1FA050009D704 /* Build configuration list for PBXProject "Softmax识别数字" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B6391B801DC1FA050009D704;
+			productRefGroup = B6391B8A1DC1FA050009D704 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6391B881DC1FA050009D704 /* Softmax识别数字 */,
+				B6391BA11DC1FA050009D704 /* Softmax识别数字Tests */,
+				B6391BAC1DC1FA050009D704 /* Softmax识别数字UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B6391B871DC1FA050009D704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6391B9C1DC1FA050009D704 /* LaunchScreen.storyboard in Resources */,
+				B6391B991DC1FA050009D704 /* Assets.xcassets in Resources */,
+				B6391B971DC1FA050009D704 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391BA01DC1FA050009D704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391BAB1DC1FA050009D704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B6391B851DC1FA050009D704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6391BC71DC20B1C0009D704 /* MLCnn.m in Sources */,
+				B6391BC11DC1FBB50009D704 /* MLLoadMNIST.m in Sources */,
+				B6391B941DC1FA050009D704 /* ViewController.m in Sources */,
+				B6391BC41DC201D00009D704 /* MLSoftMax.m in Sources */,
+				B6391B911DC1FA050009D704 /* AppDelegate.m in Sources */,
+				B6391B8E1DC1FA050009D704 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391B9E1DC1FA050009D704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6391BA71DC1FA050009D704 /* Softmax____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6391BA91DC1FA050009D704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6391BB21DC1FA050009D704 /* Softmax____UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B6391BA41DC1FA050009D704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6391B881DC1FA050009D704 /* Softmax识别数字 */;
+			targetProxy = B6391BA31DC1FA050009D704 /* PBXContainerItemProxy */;
+		};
+		B6391BAF1DC1FA050009D704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B6391B881DC1FA050009D704 /* Softmax识别数字 */;
+			targetProxy = B6391BAE1DC1FA050009D704 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B6391B951DC1FA050009D704 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6391B961DC1FA050009D704 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B6391B9A1DC1FA050009D704 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6391B9B1DC1FA050009D704 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B6391BB41DC1FA050009D704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B6391BB51DC1FA050009D704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B6391BB71DC1FA050009D704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B6391BB81DC1FA050009D704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B6391BBA1DC1FA050009D704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Softmax识别数字.app/Softmax识别数字";
+			};
+			name = Debug;
+		};
+		B6391BBB1DC1FA050009D704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Softmax识别数字.app/Softmax识别数字";
+			};
+			name = Release;
+		};
+		B6391BBD1DC1FA050009D704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Softmax识别数字";
+			};
+			name = Debug;
+		};
+		B6391BBE1DC1FA050009D704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9GL7T79KV7;
+				INFOPLIST_FILE = "Softmax识别数字UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.practice.testProject.Softmax----UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Softmax识别数字";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B6391B841DC1FA050009D704 /* Build configuration list for PBXProject "Softmax识别数字" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6391BB41DC1FA050009D704 /* Debug */,
+				B6391BB51DC1FA050009D704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6391BB61DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6391BB71DC1FA050009D704 /* Debug */,
+				B6391BB81DC1FA050009D704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B6391BB91DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6391BBA1DC1FA050009D704 /* Debug */,
+				B6391BBB1DC1FA050009D704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B6391BBC1DC1FA050009D704 /* Build configuration list for PBXNativeTarget "Softmax识别数字UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6391BBD1DC1FA050009D704 /* Debug */,
+				B6391BBE1DC1FA050009D704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B6391B811DC1FA050009D704 /* Project object */;
+}
