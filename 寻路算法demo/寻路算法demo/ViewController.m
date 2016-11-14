@@ -107,47 +107,103 @@
     self.hinderBtn.selected = YES;
 }
 -(void)searchTheWay{
-    
-    //寻路前期准备
-    self.startBtn.selected = NO;
-    self.endBtn.selected = NO;
-    self.hinderBtn.selected = NO;
-    self.State = @"";
-    if (self.startPoint == nil || self.startPoint == NULL) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"请选择一个起点" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"你是智障么?");
-        }];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
+    //初始化
+    if (![self ReStart]) {
         return;
-    }
-    
-    if (self.endPoint == nil || self.endPoint == NULL) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"请选择一个终点" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"你是智障么?");
-        }];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
-        return;
-    }
-    //非第一次点击初始化
-    [self.startArr removeAllObjects];
-    [self.endArr removeAllObjects];
-    for (MapButton *button in self.mapView.subviews) {
-        button.G = 0;
-        if (button != self.endPoint) {
-            button.H = 20000;
-        } //将预到达代价设置较高
-        button.fatherPoint = nil;
-        [button setTitle:@"" forState:UIControlStateNormal];
-        if (!(button.isHinder || button.isEndPoint || button.isStartPoint)) {
-            [button setBackgroundColor:[UIColor whiteColor]];
-        }
     }
     //开始寻路算法
     [self calculateH];
+//    [self findWayOld];
+    [self findWayNew];
+
+}
+-(void)findWayNew{
+    MapButton *currentPoint = self.startPoint; //当前点为起点
+    [self.startArr addObject:currentPoint];
+    currentPoint.fatherPoint = currentPoint;
+    while (self.startArr.count > 0) {
+//        NSLog(@"现在开启列表中有%ld个节点",self.startArr.count);
+        CGFloat tempG = 20000;
+        for (MapButton *btn in self.startArr) {
+            if (btn.G + btn.H < tempG) {
+                tempG = btn.G + btn.H;
+                currentPoint = btn;
+            }
+        }
+        //找出开启列表中G值最低的节点
+        [self.startArr removeObject:currentPoint];
+        [self.endArr addObject:currentPoint];
+        //将G值最低的节点从开启列表中删除，放入关闭列表
+        NSInteger currentTag = currentPoint.tag;
+        int currentX = currentTag % 100 / 10;
+        int currentY = currentTag % 10;
+        for (int a = currentX - 1; a < currentX + 2; a++) {
+            for (int b = currentY - 1; b < currentY + 2; b++) {
+                if ((a == currentX && b == currentY) || a > 9 || a < 0 || b > 9 || b < 0) {
+                    continue; //越界或者自身，排除
+                }
+                NSInteger tempTag = 1000 + a * 10 + b;
+                MapButton *tempButton = [_mapView viewWithTag:tempTag];
+                if (tempButton.fatherPoint == nil) { //如果没有父节点，将父节点设置为当前节点并加入开始列表
+                    tempButton.fatherPoint = currentPoint;
+                    [self.startArr addObject:tempButton];
+                    if (a == currentX || b == currentY) {
+                        tempButton.G = currentPoint.G + 10;
+                    }else{
+                        tempButton.G = currentPoint.G + 15;
+                    }
+                    
+                    if(tempButton == self.endPoint){ //找到了结束点
+                        [self colorTheWay]; //对路径染色，结束
+                        return;
+                    }
+                    
+                }else{ //如果已有父节点，检查是否需要更新G值
+                    if (a == currentX || b == currentY) {
+                        if (tempButton.G > currentPoint.G + 10) {
+                            tempButton.G = currentPoint.G + 10;
+                            tempButton.fatherPoint = currentPoint;
+                        }
+                    }else{
+                        if (tempButton.G  > currentPoint.G + 15) {
+                            tempButton.G = currentPoint.G + 15;
+                            tempButton.fatherPoint = currentPoint;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        //周围G值更新完毕，准备选择下一个节点
+        MapButton *nextbtn;
+        CGFloat nextG = 3000000;
+        for (MapButton *tempNext in self.startArr) {
+                if (tempNext.tag == currentPoint.tag) {
+                    continue; //越界或者自身，排除
+                }
+                if (tempNext.G + tempNext.H < nextG) {
+                    nextG = tempNext.G + tempNext.H;
+                    nextbtn = tempNext;
+                }
+        currentPoint = nextbtn;
+        }
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorry~" message:@"没有找到路径" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"你是智障么?");
+    }];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(void)colorTheWay{
+    MapButton *btn = self.endPoint;
+    while (btn.fatherPoint != btn) {
+        btn = btn.fatherPoint;
+        [btn setBackgroundColor:[UIColor orangeColor]];
+    }
+    [self.startPoint setBackgroundColor:[UIColor redColor]];
+}
+-(void)findWayOld{
     MapButton *currentPoint = self.startPoint; //设置目前计算位置的点
     //有父节点等价于已经被加入过开始队列
     [self.startArr addObject:currentPoint]; //将起点放入开始队列
@@ -155,9 +211,9 @@
     MapButton *nextPoint;
     int totalCost;
     while (![self.startArr containsObject:self.endPoint]) {
-    int currentX = (int)(currentPoint.tag % 100 / 10);
-    int currentY = (int)(currentPoint.tag % 10);
-    totalCost = 10000;
+        int currentX = (int)(currentPoint.tag % 100 / 10);
+        int currentY = (int)(currentPoint.tag % 10);
+        totalCost = 20000;
         for (MapButton *btn in self.mapView.subviews) {
             if (!btn.isHinder) {
                 int X = (int)(btn.tag % 100 / 10);
@@ -173,7 +229,7 @@
                         btn.G = abs(currentX - X) * 10 + abs(currentY - Y) * 10 + currentPoint.G;
                         btn.fatherPoint = currentPoint;
                     }else{
-//                        NSLog(@"Do Nothing");
+                        //                        NSLog(@"Do Nothing");
                     }
                     
                     
@@ -202,6 +258,50 @@
     
     NSLog(@"循环结束");
 }
+
+-(BOOL)ReStart{
+    
+    //寻路前期准备
+    self.startBtn.selected = NO;
+    self.endBtn.selected = NO;
+    self.hinderBtn.selected = NO;
+    self.State = @"";
+    if (self.startPoint == nil || self.startPoint == NULL) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"请选择一个起点" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"你是智障么?");
+        }];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
+        return NO;
+    }
+    
+    if (self.endPoint == nil || self.endPoint == NULL) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"请选择一个终点" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"你是智障么?");
+        }];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
+        return NO;
+    }
+    //非第一次点击初始化
+    [self.startArr removeAllObjects];
+    [self.endArr removeAllObjects];
+    for (MapButton *button in self.mapView.subviews) {
+        button.G = 0;
+        if (button != self.endPoint) {
+            button.H = 20000;
+        } //将预到达代价设置较高
+        button.fatherPoint = nil;
+        [button setTitle:@"" forState:UIControlStateNormal];
+        if (!(button.isHinder || button.isEndPoint || button.isStartPoint)) {
+            [button setBackgroundColor:[UIColor whiteColor]];
+        }
+    }
+    return YES;
+}
+
 -(void)MapBtnAction:(MapButton *)btn{
     if ([self.State isEqualToString:@"setStart"]) {
         if (self.startPoint) {
@@ -227,8 +327,15 @@
         self.endPoint.H = 0;
         [btn setBackgroundColor:[UIColor blueColor]];
     }else if ([self.State isEqualToString:@"setHinder"]){
-        btn.isStartPoint = NO;
-        btn.isEndPoint = NO;
+        if (btn.isStartPoint) {
+            self.startPoint = nil;
+            btn.isStartPoint = NO;
+        }
+        if (btn.isEndPoint) {
+            self.endPoint = nil;
+            btn.isEndPoint = NO;
+            btn.H = 20000;
+        }
         if (!btn.isHinder) {
             btn.isHinder = YES;
             [btn setBackgroundColor:[UIColor grayColor]];
@@ -293,9 +400,16 @@
 }
 -(void)supplementCalculateH{
     int count = 0;
-    while (_NeedCalculateHagain) {
-        for (MapButton *btn in [_mapView subviews]) {
-            if (btn.H == 20000 && !btn.isHinder) {
+    NSMutableArray *needs = [NSMutableArray array];
+    for (MapButton *btn in [_mapView subviews]) {
+        if (btn.H == 20000 && !btn.isHinder) {
+            [needs addObject:btn];
+        }
+    }
+
+    while (needs.count > 0) {
+        for (int i = 0; i < needs.count;i++) {
+            MapButton *btn = [needs objectAtIndex:i];
                 NSInteger tag = btn.tag;
                 int x = tag % 100 / 10;
                 int y = tag % 10;
@@ -316,21 +430,20 @@
                 }
                 if (labs(btn.tag - tempBtn.tag) == 9 || labs(btn.tag - tempBtn.tag) == 11) {
                     btn.H = tempBtn.H + 15; //是否鼓励斜线走法的这里也需要修改
-                }else{
+                    [btn setTitle:[NSString stringWithFormat:@"%f",btn.H] forState:UIControlStateNormal];
+                    [needs removeObject:btn];
+                }else if(tempBtn != nil){
                     btn.H = tempBtn.H + 10;
+                    [needs removeObject:btn];
+                    [btn setTitle:[NSString stringWithFormat:@"%f",btn.H] forState:UIControlStateNormal];
+                }else{
+                    NSLog(@"还剩下%ld个方块的H值未计算",needs.count);
                 }
-            }
-        }
-        for (MapButton *btn in [_mapView subviews]) {
-            if (!btn.isHinder && btn.H == 20000) {
-                _NeedCalculateHagain = YES;
-            }else{
-                _NeedCalculateHagain = NO;  //检查是否还存在未正确赋值H的方格，如果没有，退出循环
-            }
         }
         count++;
         if (count >= 100) {
             _NeedCalculateHagain = NO; //可能存在全封闭的非障碍方块，最多循环100次，100次后，退出循环
+            break;
         }
     }
     
