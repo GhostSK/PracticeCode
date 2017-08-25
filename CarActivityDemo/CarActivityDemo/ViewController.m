@@ -60,7 +60,6 @@
 //    backImage.image = [UIImage imageNamed:@"CCAMAP.jpeg"];
     
     CAEmitterLayer *layer = [[CAEmitterLayer alloc]initWithLayer:self.view.layer];
-    layer2 = layer;
 //    layer.emitterCells = [NSArray arrayWithObject:[UIImage imageNamed:@"火箭.png"]];//该属性用于储存粒子单元数组，
 //    在你绘制火焰效果时，可以创建两个单元，一个负责烟雾，一个负责火焰
     layer.birthRate = 10;  //粒子生成速率，默认1/s
@@ -149,12 +148,19 @@
 //    cell.contentsRect = CGRectMake(0, 0, 414, 736);
     
     layer.emitterCells = [NSArray arrayWithObject:cell];
-    [self.view.layer addSublayer:layer];
+    if (layer2) {  //防止重复点击造成无法清除
+        [layer2 removeFromSuperlayer];
+    }
+    layer2 = layer;
+    [self.view.layer addSublayer:layer2];
     
     
 }
 
 -(void)anotheremitter{
+    if (_fireEmitter) {
+        [_fireEmitter removeFromSuperlayer];
+    }
     //设置发射器
     _fireEmitter=[[CAEmitterLayer alloc]init];
     _fireEmitter.emitterPosition=CGPointMake(self.view.frame.size.width/2,self.view.frame.size.height-20);
