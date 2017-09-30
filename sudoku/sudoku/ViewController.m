@@ -169,8 +169,9 @@
         NSArray *arr =[self GetOptionsWithBtn:self.nowButton];
         NSLog(@"当前选中按钮的可能性有%@",arr);
     }else{
-        do {
-        } while ([self FirstAction]); //无改变则返回false中止循环
+//        do {
+//        } while ([self FirstAction]); //无改变则返回false中止循环
+        [self SecondAction];
     }
 }
 
@@ -191,6 +192,51 @@
     }
     return false;
 }
+
+- (BOOL)SecondAction{
+    for (NSMutableArray *arr in self.lineArr) {
+        //一个组内，总并集减去分交集看残余，有则确定元素
+        NSMutableSet *wholeSet = [NSMutableSet set];
+        NSMutableArray *SetMembers = [NSMutableArray array];
+        NSMutableSet *repeatSet = [NSMutableSet set];
+        NSMutableArray *btnArr = [NSMutableArray array];
+        for (UIButton *btn in arr) {
+            if ([btn.titleLabel.text isEqualToString:@"0"]) {
+                NSArray *options = [self GetOptionsWithBtn:btn];
+                NSMutableSet *set = [NSMutableSet setWithArray:options];
+                [wholeSet unionSet:set];     //总并集
+                [SetMembers addObject:set];  //各子集，准备求分交集
+                [btnArr addObject:btn];
+            }
+        }
+        for (int i = 0; i < SetMembers.count; i++) {
+            for (int j = i + 1; j < SetMembers.count; j++) {
+                NSMutableSet *setA = SetMembers[i];
+                NSMutableSet *setB = SetMembers[j];
+                [setA intersectSet:setB];
+                [repeatSet unionSet:setA];
+            }
+        }
+        [wholeSet minusSet:repeatSet];
+//        NSLog(@"有唯一的结果为%@",wholeSet);
+        if (wholeSet.count > 0) {
+            //寻找单值对照的按钮，修改
+            for (NSString *str in wholeSet) {
+                for (int i = 0; i < SetMembers.count; i++) {
+                    NSSet *set = SetMembers[i];
+                    if ([set containsObject:str]) {
+                        UIButton *btn2 = btnArr[i];
+                        [btn2 setTitle:str forState:UIControlStateNormal];
+                        return true;
+                    }
+                }
+            }
+        }
+        
+    }
+    return false;
+}
+
 
 - (NSArray *)GetOptionsWithBtn:(UIButton *)btn{
     NSInteger tag = btn.tag;
@@ -221,9 +267,11 @@
     for (NSString *str in wholeSet) {
         [result addObject:str];
     }
-//    NSLog(@"可以输入的元素有%@",result);  //这里返回一个[String],每一个元素是一个可选输入值
-    return result;
+    return result;  //这里返回一个[String],每一个元素是一个可选输入值
 }
+
+
+
 
 - (void)InputTestData{
     [self loadData:5 WithTag:2];
