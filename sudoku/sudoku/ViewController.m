@@ -160,7 +160,7 @@
             [btn setTitle:@"0" forState:UIControlStateNormal];
         }
     }
-    [self InputTestData];
+//    [self InputTestData];
 }
 
 -(void)calculate{
@@ -169,10 +169,13 @@
         NSArray *arr =[self GetOptionsWithBtn:self.nowButton];
         NSLog(@"当前选中按钮的可能性有%@",arr);
     }else{
-//        do {
-//        } while ([self FirstAction]); //无改变则返回false中止循环
-        [self SecondAction];
-    }
+        do {
+        } while ([self FirstAction]); //无改变则返回false中止循环
+//        [self SecondAction];
+      do {
+      } while ([self SecondAction]);
+        }
+    
 }
 
 - (BOOL)FirstAction{
@@ -194,31 +197,123 @@
 }
 
 - (BOOL)SecondAction{
-    for (NSMutableArray *arr in self.lineArr) {
+    for (int a = 0; a < 9; a++) {
+        NSMutableArray *arr = self.lineArr[a];
         //一个组内，总并集减去分交集看残余，有则确定元素
         NSMutableSet *wholeSet = [NSMutableSet set];
         NSMutableArray *SetMembers = [NSMutableArray array];
         NSMutableSet *repeatSet = [NSMutableSet set];
         NSMutableArray *btnArr = [NSMutableArray array];
+        NSInteger btnCount = 0;
         for (UIButton *btn in arr) {
             if ([btn.titleLabel.text isEqualToString:@"0"]) {
+//                NSLog(@"这是行上第%ld个btn",btnCount);
                 NSArray *options = [self GetOptionsWithBtn:btn];
                 NSMutableSet *set = [NSMutableSet setWithArray:options];
                 [wholeSet unionSet:set];     //总并集
                 [SetMembers addObject:set];  //各子集，准备求分交集
                 [btnArr addObject:btn];
             }
+            btnCount++;
         }
         for (int i = 0; i < SetMembers.count; i++) {
             for (int j = i + 1; j < SetMembers.count; j++) {
-                NSMutableSet *setA = SetMembers[i];
-                NSMutableSet *setB = SetMembers[j];
+                NSMutableSet *setA = [SetMembers[i] mutableCopy];
+                NSMutableSet *setB = [SetMembers[j] mutableCopy];
                 [setA intersectSet:setB];
                 [repeatSet unionSet:setA];
             }
         }
         [wholeSet minusSet:repeatSet];
-//        NSLog(@"有唯一的结果为%@",wholeSet);
+        NSLog(@"第%d行上有唯一的结果为%@,总数为%ld",a,wholeSet,wholeSet.count);
+        if (wholeSet.count > 0) {
+            //寻找单值对照的按钮，修改
+            for (NSString *str in wholeSet) {
+                for (int i = 0; i < SetMembers.count; i++) {
+                    NSSet *set = SetMembers[i];
+                    if ([set containsObject:str]) {
+                        UIButton *btn2 = btnArr[i];
+                        [btn2 setTitle:str forState:UIControlStateNormal];
+                        return true;
+                    }
+                }
+            }
+        }
+        
+    }
+    for (int a = 0;a < 9; a++) {
+        NSMutableArray *arr = self.rowArr[a];
+        //一个组内，总并集减去分交集看残余，有则确定元素
+        NSMutableSet *wholeSet = [NSMutableSet set];
+        NSMutableArray *SetMembers = [NSMutableArray array];
+        NSMutableSet *repeatSet = [NSMutableSet set];
+        NSMutableArray *btnArr = [NSMutableArray array];
+        NSInteger btnCount = 0;
+        for (UIButton *btn in arr) {
+            if ([btn.titleLabel.text isEqualToString:@"0"]) {
+//                NSLog(@"这是列上第%ld个btn",btnCount);
+                NSArray *options = [self GetOptionsWithBtn:btn];
+                NSMutableSet *set = [NSMutableSet setWithArray:options];
+                [wholeSet unionSet:set];     //总并集
+                [SetMembers addObject:set];  //各子集，准备求分交集
+                [btnArr addObject:btn];
+            }
+            btnCount++;
+        }
+        for (int i = 0; i < SetMembers.count; i++) {
+            for (int j = i + 1; j < SetMembers.count; j++) {
+                NSMutableSet *setA = [SetMembers[i] mutableCopy];
+                NSMutableSet *setB = [SetMembers[j] mutableCopy];
+                [setA intersectSet:setB];
+                [repeatSet unionSet:setA];
+            }
+        }
+        [wholeSet minusSet:repeatSet];
+        NSLog(@"第%d列上有唯一的结果为%@,总数为%ld",a,wholeSet,wholeSet.count);
+        if (wholeSet.count > 0) {
+            //寻找单值对照的按钮，修改
+            for (NSString *str in wholeSet) {
+                for (int i = 0; i < SetMembers.count; i++) {
+                    NSSet *set = SetMembers[i];
+                    if ([set containsObject:str]) {
+                        UIButton *btn2 = btnArr[i];
+                        [btn2 setTitle:str forState:UIControlStateNormal];
+                        return true;
+                    }
+                }
+            }
+        }
+        
+    }
+    for (int a = 0; a < 9; a++) {
+        NSMutableArray *arr = self.blockArr[a];
+        //一个组内，总并集减去分交集看残余，有则确定元素
+        NSMutableSet *wholeSet = [NSMutableSet set];
+        NSMutableArray *SetMembers = [NSMutableArray array];
+        NSMutableSet *repeatSet = [NSMutableSet set];
+        NSMutableArray *btnArr = [NSMutableArray array];
+        NSInteger btnCount = 0;
+        for (UIButton *btn in arr) {
+            if ([btn.titleLabel.text isEqualToString:@"0"]) {
+//                NSLog(@"这是组块第%ld个btn",btnCount);
+                NSArray *options = [self GetOptionsWithBtn:btn];
+                NSMutableSet *set = [NSMutableSet setWithArray:options];
+                [wholeSet unionSet:set];     //总并集
+                [SetMembers addObject:set];  //各子集，准备求分交集
+                [btnArr addObject:btn];
+            }
+            btnCount++;
+        }
+        for (int i = 0; i < SetMembers.count; i++) {
+            for (int j = i + 1; j < SetMembers.count; j++) {
+                NSMutableSet *setA = [SetMembers[i] mutableCopy];
+                NSMutableSet *setB = [SetMembers[j] mutableCopy];
+                [setA intersectSet:setB];
+                [repeatSet unionSet:setA];
+            }
+        }
+        [wholeSet minusSet:repeatSet];
+        NSLog(@"第%d组块有唯一的结果为%@,总数为%ld",a,wholeSet,wholeSet.count);
         if (wholeSet.count > 0) {
             //寻找单值对照的按钮，修改
             for (NSString *str in wholeSet) {
